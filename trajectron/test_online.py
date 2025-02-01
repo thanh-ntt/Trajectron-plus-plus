@@ -208,7 +208,8 @@ def main():
                                  {timestep: preds},
                                  eval_scene.dt,
                                  hyperparams['maximum_history_length'],
-                                 hyperparams['prediction_horizon'])
+                                 hyperparams['prediction_horizon'],
+                                 map=eval_scene.map['VISUALIZATION'] if eval_scene.map is not None else None)
 
         if eval_scene.robot is not None and hyperparams['incl_robot_node']:
             robot_for_plotting = eval_scene.robot.get(np.array([timestep,
